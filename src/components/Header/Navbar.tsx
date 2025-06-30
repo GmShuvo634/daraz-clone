@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Search, ShoppingCart, Menu, X } from 'lucide-react';
+import { Search, Menu, X } from 'lucide-react';
+import { CartIcon } from './CartIcon';
 
 export const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -31,9 +32,7 @@ export const Navbar: React.FC = () => {
 
           {/* Right Side Icons */}
           <div className="flex items-center space-x-4">
-            <button className="text-white hover:text-orange-200 transition-colors">
-              <ShoppingCart className="h-6 w-6" />
-            </button>
+            <CartIcon />
             
             {/* Mobile Menu Button */}
             <button 

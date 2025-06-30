@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Product } from '../../types/product';
 
 interface ProductCardProps {
@@ -10,10 +11,16 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   product,
   showCompany = false
 }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/product/${product.id}`);
+  };
+
   return (
-    <a
-      href="#"
-      className="group block bg-white border border-gray-100 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
+    <button
+      onClick={handleClick}
+      className="group block bg-white border border-gray-100 rounded-lg overflow-hidden hover:shadow-md transition-shadow text-left w-full"
     >
       <div className="aspect-square overflow-hidden">
         <img
@@ -52,6 +59,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           </div>
         )}
       </div>
-    </a>
+    </button>
   );
 };
